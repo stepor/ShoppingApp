@@ -25,6 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"购物车";
     self.selectAllButton.delegate = self;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -32,9 +33,13 @@
     [self setSettleLabelText:10];
 }
 
-#pragma mark - --- <UITableViewDataSource> ---
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+#pragma mark - <UITableViewDataSource> 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

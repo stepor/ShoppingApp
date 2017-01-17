@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		0E8A4AB7211671A7387EC6CF /* Pods_ShoppingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AD24A65D70C6B28FD7E2121 /* Pods_ShoppingApp.framework */; };
 		D7A2328E1DFF9D8F0088786B /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A2328D1DFF9D8F0088786B /* TabBarController.m */; };
+		D7D700CC1E165B750004DB0A /* CatalogItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D700CB1E165B750004DB0A /* CatalogItem.m */; };
+		D7D700D01E16621F0004DB0A /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D700CF1E16621F0004DB0A /* HomePageViewController.m */; };
+		D7D700D41E1698ED0004DB0A /* HTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D700D31E1698ED0004DB0A /* HTTPSessionManager.m */; };
+		D7D700D81E175A0A0004DB0A /* BookInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D700D71E175A0A0004DB0A /* BookInfoViewController.m */; };
+		D7D700DB1E179A650004DB0A /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D700DA1E179A650004DB0A /* Book.m */; };
 		D7E30CF41DF93B0C005AE2B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D7E30CF31DF93B0C005AE2B1 /* main.m */; };
 		D7E30CF71DF93B0C005AE2B1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7E30CF61DF93B0C005AE2B1 /* AppDelegate.m */; };
 		D7E30D001DF93B0C005AE2B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7E30CFE1DF93B0C005AE2B1 /* Main.storyboard */; };
@@ -43,6 +48,16 @@
 		7F0A189129A640BC67B3BFDA /* Pods-ShoppingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShoppingApp/Pods-ShoppingApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D7A2328C1DFF9D8F0088786B /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabBarController.h; path = TabBarController/TabBarController.h; sourceTree = "<group>"; };
 		D7A2328D1DFF9D8F0088786B /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TabBarController.m; path = TabBarController/TabBarController.m; sourceTree = "<group>"; };
+		D7D700CA1E165B750004DB0A /* CatalogItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CatalogItem.h; path = Model/CatalogItem.h; sourceTree = "<group>"; };
+		D7D700CB1E165B750004DB0A /* CatalogItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CatalogItem.m; path = Model/CatalogItem.m; sourceTree = "<group>"; };
+		D7D700CE1E16621F0004DB0A /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomePageViewController.h; path = HomePageViewController/HomePageViewController.h; sourceTree = "<group>"; };
+		D7D700CF1E16621F0004DB0A /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomePageViewController.m; path = HomePageViewController/HomePageViewController.m; sourceTree = "<group>"; };
+		D7D700D21E1698ED0004DB0A /* HTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPSessionManager.h; path = HTTPSessionManager/HTTPSessionManager.h; sourceTree = "<group>"; };
+		D7D700D31E1698ED0004DB0A /* HTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPSessionManager.m; path = HTTPSessionManager/HTTPSessionManager.m; sourceTree = "<group>"; };
+		D7D700D61E175A0A0004DB0A /* BookInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookInfoViewController.h; path = HomePageViewController/BookInfoViewController/BookInfoViewController.h; sourceTree = "<group>"; };
+		D7D700D71E175A0A0004DB0A /* BookInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookInfoViewController.m; path = HomePageViewController/BookInfoViewController/BookInfoViewController.m; sourceTree = "<group>"; };
+		D7D700D91E179A650004DB0A /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Book.h; path = Model/Book.h; sourceTree = "<group>"; };
+		D7D700DA1E179A650004DB0A /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Book.m; path = Model/Book.m; sourceTree = "<group>"; };
 		D7E30CEF1DF93B0C005AE2B1 /* ShoppingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7E30CF31DF93B0C005AE2B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D7E30CF51DF93B0C005AE2B1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -101,6 +116,45 @@
 			name = TabBarController;
 			sourceTree = "<group>";
 		};
+		D7D700C91E165B340004DB0A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D7D700CA1E165B750004DB0A /* CatalogItem.h */,
+				D7D700CB1E165B750004DB0A /* CatalogItem.m */,
+				D7D700D91E179A650004DB0A /* Book.h */,
+				D7D700DA1E179A650004DB0A /* Book.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D7D700CD1E1660490004DB0A /* HomePageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D7D700CE1E16621F0004DB0A /* HomePageViewController.h */,
+				D7D700CF1E16621F0004DB0A /* HomePageViewController.m */,
+				D7D700D51E1759DA0004DB0A /* BookInfoViewController */,
+			);
+			name = HomePageViewController;
+			sourceTree = "<group>";
+		};
+		D7D700D11E1698C10004DB0A /* HTTPSessionManager */ = {
+			isa = PBXGroup;
+			children = (
+				D7D700D21E1698ED0004DB0A /* HTTPSessionManager.h */,
+				D7D700D31E1698ED0004DB0A /* HTTPSessionManager.m */,
+			);
+			name = HTTPSessionManager;
+			sourceTree = "<group>";
+		};
+		D7D700D51E1759DA0004DB0A /* BookInfoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D7D700D61E175A0A0004DB0A /* BookInfoViewController.h */,
+				D7D700D71E175A0A0004DB0A /* BookInfoViewController.m */,
+			);
+			name = BookInfoViewController;
+			sourceTree = "<group>";
+		};
 		D7E30CE61DF93B0C005AE2B1 = {
 			isa = PBXGroup;
 			children = (
@@ -132,10 +186,13 @@
 				D7E30D031DF93B0C005AE2B1 /* LaunchScreen.storyboard */,
 				D7E30CFE1DF93B0C005AE2B1 /* Main.storyboard */,
 				D7E30D011DF93B0C005AE2B1 /* Assets.xcassets */,
+				D7D700D11E1698C10004DB0A /* HTTPSessionManager */,
+				D7D700C91E165B340004DB0A /* Model */,
 				D7E350911E01425D00ED643A /* CommodityCell */,
 				D7E350891E00290D00ED643A /* CheckCycle */,
 				D7A2328B1DFF9D500088786B /* TabBarController */,
 				D7E3508D1E00CFB200ED643A /* ShoppingCartViewController */,
+				D7D700CD1E1660490004DB0A /* HomePageViewController */,
 				D7E30CF21DF93B0C005AE2B1 /* Supporting Files */,
 			);
 			path = ShoppingApp;
@@ -395,8 +452,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7D700D01E16621F0004DB0A /* HomePageViewController.m in Sources */,
+				D7D700D81E175A0A0004DB0A /* BookInfoViewController.m in Sources */,
 				D7E30CF71DF93B0C005AE2B1 /* AppDelegate.m in Sources */,
 				D7E3508C1E00295000ED643A /* CheckCycle.m in Sources */,
+				D7D700DB1E179A650004DB0A /* Book.m in Sources */,
+				D7D700D41E1698ED0004DB0A /* HTTPSessionManager.m in Sources */,
+				D7D700CC1E165B750004DB0A /* CatalogItem.m in Sources */,
 				D7A2328E1DFF9D8F0088786B /* TabBarController.m in Sources */,
 				D7E350901E00CFF000ED643A /* ShoppingCartViewController.m in Sources */,
 				D7E30CF41DF93B0C005AE2B1 /* main.m in Sources */,
