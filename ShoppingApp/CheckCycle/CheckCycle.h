@@ -22,4 +22,6 @@
 @property(weak, nonatomic) id<CheckCycleDelegate> delegate;
 @property(assign, nonatomic, getter=isSelected) BOOL selected;
 
+- (void)setSelectedWithoutCallback:(BOOL)selected;
+
 @end

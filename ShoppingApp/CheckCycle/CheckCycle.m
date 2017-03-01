@@ -18,6 +18,7 @@
 @dynamic selected;
 BOOL _selected;
 
+#pragma mark - Initialization
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
    self =  [super initWithCoder:aDecoder];
     if(self) {
@@ -39,7 +40,7 @@ BOOL _selected;
 
 - (void)commonInit {
     self.backgroundColor = [UIColor clearColor];
-    self.contentMode = UIViewContentModeScaleAspectFit;
+    self.userInteractionEnabled = YES;
     _selected = false;
     self.contentMode = UIViewContentModeScaleAspectFit;
     self.image = [UIImage imageNamed:@"unselectedImage"];
@@ -48,12 +49,22 @@ BOOL _selected;
 }
 
 - (void)touchAction:(UITapGestureRecognizer *)tap {
-    self.selected = !self.isSelected;
+    [self setSelected:!_selected];
+}
+
+#pragma mark - Public methods
+- (void)setSelectedWithoutCallback:(BOOL)selected {
+    _selected = selected;
+    if(selected) {
+        self.image = [UIImage imageNamed:@"selectedImage"];
+    } else {
+        self.image = [UIImage imageNamed:@"unselectedImage"];
+    }
 }
 
 #pragma mark - --- accesser ---
 - (void)setSelected:(BOOL)selected {
-    
+    _selected = selected;
     if(selected) {
         self.image = [UIImage imageNamed:@"selectedImage"];
     } else {
@@ -63,8 +74,6 @@ BOOL _selected;
     if([self.delegate respondsToSelector:@selector(checkCycle:wasClicked:)]) {
         [self.delegate checkCycle:self wasClicked:selected];
     }
-    
-    _selected = selected;
 }
 
 

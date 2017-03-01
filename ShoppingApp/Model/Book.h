@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <MJExtension/MJExtension.h>
+#import "PurchasedBook+CoreDataClass.h"
 
 @interface Book : NSObject<MJKeyValue>
 
@@ -21,5 +22,8 @@
 @property (copy, nonatomic) NSString *onlineShoppingAddress;
 @property (copy, nonatomic) NSString *publishingTime;
 @property (copy, nonatomic) NSString *price;
+
+
+- (void)duplicateAllPropertyToPurchasedBook:(PurchasedBook *)pBook;
 
 @end

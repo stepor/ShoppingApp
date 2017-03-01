@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16C67" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="PurchasedBook" representedClassName="PurchasedBook" syncable="YES" codeGenerationType="class">
+        <attribute name="catalog" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contentSummary" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imgUrlString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="onlineShoppingAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="publishingTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="readingQuantity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tags" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="titleSummary" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="PurchasedBook" positionX="-18" positionY="27" width="128" height="195"/>
+    </elements>
+</model>

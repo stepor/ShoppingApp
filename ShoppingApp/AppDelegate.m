@@ -7,8 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "CoreDataHelper.h"
 
 @interface AppDelegate ()
+
+@property (nonatomic, strong) CoreDataHelper *coreDataHelper;
 
 @end
 
@@ -28,6 +31,7 @@
 
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
+    [self.coreDataHelper saveContext];
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
@@ -44,8 +48,13 @@
 
 
 - (void)applicationWillTerminate:(UIApplication *)application {
+    [self.coreDataHelper saveContext];
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
 
+#pragma mark - LAZY LOAD
+- (CoreDataHelper *)coreDataHelper  {
+    return [CoreDataHelper sharedInstance];
+ }
 @end

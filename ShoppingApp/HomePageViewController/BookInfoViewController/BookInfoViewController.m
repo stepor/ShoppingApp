@@ -9,9 +9,11 @@
 #import "BookInfoViewController.h"
 #import "HTTPSessionManager.h"
 #import "Book.h"
+#import "ConstantHeader.h"
 #import <SDWebImage/UIImageView+Webcache.h>
 #import <Masonry/Masonry.h>
 #import <MJRefresh/MJRefresh.h>
+#import "CoreDataHelper.h"
 
 @interface BookInfoCell : UITableViewCell
 
@@ -86,6 +88,7 @@
 
 @property (strong, nonatomic) NSMutableArray *books;
 @property (assign, nonatomic) NSInteger bookNum;
+@property (strong, nonatomic) CoreDataHelper *coreDataHelper;
 
 @end
 
@@ -135,7 +138,7 @@ static NSString *const reuseBookInfoCellID = @"bookInfoCell";
     [urlStr replaceCharactersInRange:NSMakeRange(0, 4) withString:@"https"];
     [cell.bookImageView sd_setImageWithURL:[NSURL URLWithString:urlStr] placeholderImage:[UIImage imageNamed:@"book"]];
     cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    NSLog(@"img url: %@", urlStr);
+    
     
     return cell;
 }
@@ -147,10 +150,17 @@ static NSString *const reuseBookInfoCellID = @"bookInfoCell";
 }
 
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    __weak typeof(self) weakSelf = self;
     UITableViewRowAction *buyAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"加入购物车" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
        
+        typeof(weakSelf) strongSelf = weakSelf;
+        if(strongSelf) {
+            Book *aBook = strongSelf.books[indexPath.row];
+            PurchasedBook *pBook = [NSEntityDescription insertNewObjectForEntityForName:EntityName_PurchasedBook inManagedObjectContext:strongSelf.coreDataHelper.context];
+            [aBook duplicateAllPropertyToPurchasedBook:pBook];
+        }
         
-        
+        NSLog(@"加入购物车");
     }];
     
     return @[buyAction];
@@ -297,4 +307,10 @@ static NSString *const reuseBookInfoCellID = @"bookInfoCell";
     }
     return [NSString stringWithFormat:@"¥%lu", price];
 }
+
+#pragma makr - LAZY LOAD
+- (CoreDataHelper *)coreDataHelper {
+    return [CoreDataHelper sharedInstance];
+}
+
 @end

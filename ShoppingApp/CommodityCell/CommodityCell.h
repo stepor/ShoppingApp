@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CheckCycle.h"
 
-@interface CommodityCell : UITableViewCell
+@interface CommodityCell : UITableViewCell<CheckCycleDelegate>
+
+@property (strong, nonatomic) UIImageView *bookImageView;
+@property (strong, nonatomic) UILabel *titleLabel;
+@property (strong, nonatomic) UILabel *priceLabel;
+@property (strong, nonatomic) UILabel *subTitleLabel;
+@property (strong, nonatomic) CheckCycle *checkCycle;
+@property (strong, nonatomic) UILabel *countLabel;
 
 @end

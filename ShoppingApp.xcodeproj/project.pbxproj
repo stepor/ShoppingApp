@@ -14,6 +14,8 @@
 		D7D700D41E1698ED0004DB0A /* HTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D700D31E1698ED0004DB0A /* HTTPSessionManager.m */; };
 		D7D700D81E175A0A0004DB0A /* BookInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D700D71E175A0A0004DB0A /* BookInfoViewController.m */; };
 		D7D700DB1E179A650004DB0A /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D700DA1E179A650004DB0A /* Book.m */; };
+		D7DAAEFD1E2E6179002796E1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D7DAAEFB1E2E6179002796E1 /* Model.xcdatamodeld */; };
+		D7DAAF011E3201B2002796E1 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DAAF001E3201B2002796E1 /* CoreDataHelper.m */; };
 		D7E30CF41DF93B0C005AE2B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D7E30CF31DF93B0C005AE2B1 /* main.m */; };
 		D7E30CF71DF93B0C005AE2B1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7E30CF61DF93B0C005AE2B1 /* AppDelegate.m */; };
 		D7E30D001DF93B0C005AE2B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7E30CFE1DF93B0C005AE2B1 /* Main.storyboard */; };
@@ -46,6 +48,7 @@
 /* Begin PBXFileReference section */
 		2AD24A65D70C6B28FD7E2121 /* Pods_ShoppingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShoppingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F0A189129A640BC67B3BFDA /* Pods-ShoppingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShoppingApp/Pods-ShoppingApp.debug.xcconfig"; sourceTree = "<group>"; };
+		D72A5EBA1E5D6C8600A85760 /* ConstantHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstantHeader.h; sourceTree = "<group>"; };
 		D7A2328C1DFF9D8F0088786B /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabBarController.h; path = TabBarController/TabBarController.h; sourceTree = "<group>"; };
 		D7A2328D1DFF9D8F0088786B /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TabBarController.m; path = TabBarController/TabBarController.m; sourceTree = "<group>"; };
 		D7D700CA1E165B750004DB0A /* CatalogItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CatalogItem.h; path = Model/CatalogItem.h; sourceTree = "<group>"; };
@@ -58,6 +61,9 @@
 		D7D700D71E175A0A0004DB0A /* BookInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookInfoViewController.m; path = HomePageViewController/BookInfoViewController/BookInfoViewController.m; sourceTree = "<group>"; };
 		D7D700D91E179A650004DB0A /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Book.h; path = Model/Book.h; sourceTree = "<group>"; };
 		D7D700DA1E179A650004DB0A /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Book.m; path = Model/Book.m; sourceTree = "<group>"; };
+		D7DAAEFC1E2E6179002796E1 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		D7DAAEFF1E3201B2002796E1 /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataHelper.h; path = "Data Model/Core Data Helper/CoreDataHelper.h"; sourceTree = "<group>"; };
+		D7DAAF001E3201B2002796E1 /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataHelper.m; path = "Data Model/Core Data Helper/CoreDataHelper.m"; sourceTree = "<group>"; };
 		D7E30CEF1DF93B0C005AE2B1 /* ShoppingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7E30CF31DF93B0C005AE2B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D7E30CF51DF93B0C005AE2B1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -155,6 +161,24 @@
 			name = BookInfoViewController;
 			sourceTree = "<group>";
 		};
+		D7DAAEFA1E2E6155002796E1 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				D7DAAEFE1E320187002796E1 /* Core Data Helper */,
+				D7DAAEFB1E2E6179002796E1 /* Model.xcdatamodeld */,
+			);
+			name = "Data Model";
+			sourceTree = "<group>";
+		};
+		D7DAAEFE1E320187002796E1 /* Core Data Helper */ = {
+			isa = PBXGroup;
+			children = (
+				D7DAAEFF1E3201B2002796E1 /* CoreDataHelper.h */,
+				D7DAAF001E3201B2002796E1 /* CoreDataHelper.m */,
+			);
+			name = "Core Data Helper";
+			sourceTree = "<group>";
+		};
 		D7E30CE61DF93B0C005AE2B1 = {
 			isa = PBXGroup;
 			children = (
@@ -180,12 +204,14 @@
 		D7E30CF11DF93B0C005AE2B1 /* ShoppingApp */ = {
 			isa = PBXGroup;
 			children = (
+				D72A5EBA1E5D6C8600A85760 /* ConstantHeader.h */,
 				D7E30D061DF93B0C005AE2B1 /* Info.plist */,
 				D7E30CF51DF93B0C005AE2B1 /* AppDelegate.h */,
 				D7E30CF61DF93B0C005AE2B1 /* AppDelegate.m */,
 				D7E30D031DF93B0C005AE2B1 /* LaunchScreen.storyboard */,
 				D7E30CFE1DF93B0C005AE2B1 /* Main.storyboard */,
 				D7E30D011DF93B0C005AE2B1 /* Assets.xcassets */,
+				D7DAAEFA1E2E6155002796E1 /* Data Model */,
 				D7D700D11E1698C10004DB0A /* HTTPSessionManager */,
 				D7D700C91E165B340004DB0A /* Model */,
 				D7E350911E01425D00ED643A /* CommodityCell */,
@@ -462,7 +488,9 @@
 				D7A2328E1DFF9D8F0088786B /* TabBarController.m in Sources */,
 				D7E350901E00CFF000ED643A /* ShoppingCartViewController.m in Sources */,
 				D7E30CF41DF93B0C005AE2B1 /* main.m in Sources */,
+				D7DAAF011E3201B2002796E1 /* CoreDataHelper.m in Sources */,
 				D7E350941E0142D200ED643A /* CommodityCell.m in Sources */,
+				D7DAAEFD1E2E6179002796E1 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,6 +639,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ShoppingApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huangwenhong.ShoppingApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -623,6 +652,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ShoppingApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huangwenhong.ShoppingApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -715,6 +745,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D7DAAEFB1E2E6179002796E1 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D7DAAEFC1E2E6179002796E1 /* Model.xcdatamodel */,
+			);
+			currentVersion = D7DAAEFC1E2E6179002796E1 /* Model.xcdatamodel */;
+			name = Model.xcdatamodeld;
+			path = "Data Model/Model.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D7E30CE71DF93B0C005AE2B1 /* Project object */;
 }
