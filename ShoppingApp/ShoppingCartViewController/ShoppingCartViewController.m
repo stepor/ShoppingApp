@@ -65,9 +65,9 @@ static NSString *const reuseCommodityCellID = @"CommodityCell";
     self.selectAllButton.delegate = self;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [self setTotalSumLabelText:50];
-    [self setSettleLabelText:10];
-    
+    [self setTotalSumLabelText:0];
+    [self setSettleLabelText:0];
+    self.tableView.allowsSelection = NO;
     [self.tableView registerClass:[CommodityCell class] forCellReuseIdentifier:reuseCommodityCellID];
 }
 
@@ -113,6 +113,12 @@ static NSString *const reuseCommodityCellID = @"CommodityCell";
         cell.checkCycle.delegate = self;
     }
     
+    if(indexPath.row == 0) {
+        NSLog(@"c0: %@", cell.checkCycle);
+    }
+    if(indexPath.row == 1) {
+        NSLog(@"c1: %@", cell.checkCycle);
+    }
     PurchasedBook *book = self.purchasedBooks[indexPath.row];
     cell.titleLabel.text = book.title;
     cell.subTitleLabel.text = book.titleSummary;
@@ -120,7 +126,6 @@ static NSString *const reuseCommodityCellID = @"CommodityCell";
     CountStatus *cs = self.purchasedCountDic[book.tags];
     cell.countLabel.text = [NSString stringWithFormat:@"x%ld", cs.count];
     [cell.checkCycle setSelectedWithoutCallback:cs.selected];
-    NSLog(@"cell:%d", cs.selected);
     NSMutableString *urlStr = [NSMutableString stringWithString:book.imgUrlString];
     [urlStr replaceCharactersInRange:NSMakeRange(0, 4) withString:@"https"];
     [cell.bookImageView sd_setImageWithURL:[NSURL URLWithString:urlStr] placeholderImage:[UIImage imageNamed:@"book"]];
@@ -167,7 +172,10 @@ static NSString *const reuseCommodityCellID = @"CommodityCell";
         NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
         PurchasedBook *pBook = self.purchasedBooks[indexPath.row];
         CountStatus *cs = self.purchasedCountDic[pBook.tags];
-        cs.selected = selected;
+#warning warning
+        //cs.selected = !selected;尚未知道这么做为什么会出现 cell0的checkCycle 和cell1 不能同时处于选中活着未选中的状态
+        cs.selected = !cs.selected;
+        NSLog(@"selected: %d", selected);
         [self.selectAllButton setSelectedWithoutCallback:true];
         for(PurchasedBook *book in self.purchasedBooks) {
             CountStatus *cs1 = self.purchasedCountDic[book.tags];

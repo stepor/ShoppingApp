@@ -72,6 +72,7 @@ BOOL _selected;
     }
     
     if([self.delegate respondsToSelector:@selector(checkCycle:wasClicked:)]) {
+        NSLog(@"c: %@", self);
         [self.delegate checkCycle:self wasClicked:selected];
     }
 }

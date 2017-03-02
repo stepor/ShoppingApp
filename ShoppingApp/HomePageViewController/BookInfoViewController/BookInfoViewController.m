@@ -84,7 +84,7 @@
 
 @end
 
-@interface BookInfoViewController ()
+@interface BookInfoViewController ()<CAAnimationDelegate>
 
 @property (strong, nonatomic) NSMutableArray *books;
 @property (assign, nonatomic) NSInteger bookNum;
@@ -92,7 +92,9 @@
 
 @end
 
-@implementation BookInfoViewController
+@implementation BookInfoViewController {
+    CALayer *_layer;
+}
 
 static NSString *const reuseBookInfoCellID = @"bookInfoCell";
 
@@ -155,6 +157,9 @@ static NSString *const reuseBookInfoCellID = @"bookInfoCell";
        
         typeof(weakSelf) strongSelf = weakSelf;
         if(strongSelf) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self animaitonOfAddingToCartWithIndexPath:indexPath];
+            });
             Book *aBook = strongSelf.books[indexPath.row];
             PurchasedBook *pBook = [NSEntityDescription insertNewObjectForEntityForName:EntityName_PurchasedBook inManagedObjectContext:strongSelf.coreDataHelper.context];
             [aBook duplicateAllPropertyToPurchasedBook:pBook];
@@ -308,9 +313,70 @@ static NSString *const reuseBookInfoCellID = @"bookInfoCell";
     return [NSString stringWithFormat:@"¥%lu", price];
 }
 
-#pragma makr - LAZY LOAD
+- (void)animaitonOfAddingToCartWithIndexPath:(NSIndexPath *)ip {
+   // self.tableView.userInteractionEnabled = NO;
+    BookInfoCell *cell = [self.tableView cellForRowAtIndexPath:ip];
+    
+    //layer
+    if(!_layer) {
+        _layer = [CALayer layer];
+        _layer.backgroundColor = [UIColor redColor].CGColor;
+    }
+    _layer.contents = (id)cell.bookImageView.layer.contents;
+    _layer.contentsGravity = kCAGravityResizeAspect;
+    _layer.bounds = cell.bookImageView.bounds;
+    UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+    _layer.position = [cell convertPoint:CGPointMake(CGRectGetWidth(cell.bounds) / 2.0, CGRectGetHeight(cell.bounds) / 2.0) toView:keyWindow];
+    [keyWindow.layer addSublayer:_layer];
+    
+    //bezier
+    UIBezierPath *bezier = [UIBezierPath bezierPath];
+    [bezier moveToPoint:_layer.position];
+    CGPoint endPoint = [self.tabBarController.tabBar convertPoint:CGPointMake((7.0/8.0)*CGRectGetWidth(self.tabBarController.tabBar.bounds), CGRectGetHeight(self.tabBarController.tabBar.bounds) / 2.0) toView:keyWindow];
+    [bezier addQuadCurveToPoint:endPoint controlPoint:CGPointMake(endPoint.x, _layer.position.y)];
+    
+    //path animation
+    CAKeyframeAnimation *pathAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    pathAnimation.path = bezier.CGPath;
+    pathAnimation.duration = 1.0;
+    
+    //rotation animation
+    CABasicAnimation *rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    rotationAnimation.repeatCount = INFINITY;
+    rotationAnimation.toValue = @(M_PI * 2);
+    rotationAnimation.duration = 0.2;
+    rotationAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+    
+    //narrow animation
+    CABasicAnimation *narrowAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    narrowAnimation.fromValue = @(1.0);
+    narrowAnimation.toValue = @(0.1);
+    narrowAnimation.duration = 1.0;
+    narrowAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    
+    // group animation
+    CAAnimationGroup *groupAnimation = [CAAnimationGroup animation];
+    groupAnimation.animations = @[pathAnimation, rotationAnimation, narrowAnimation];
+    groupAnimation.duration = 1.0;
+    groupAnimation.fillMode = kCAFillModeForwards;
+    groupAnimation.removedOnCompletion = NO;
+    groupAnimation.delegate = self;
+    [_layer addAnimation:groupAnimation forKey:@"group"];
+}
+
+#pragma mark - <CAAnimationDelegate>
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    if(anim == [_layer animationForKey:@"group"]) {
+        self.tableView.userInteractionEnabled = YES;
+        [_layer removeFromSuperlayer];
+        _layer = nil;
+    }
+}
+
+#pragma mark - LAZY LOAD
 - (CoreDataHelper *)coreDataHelper {
     return [CoreDataHelper sharedInstance];
 }
+
 
 @end
